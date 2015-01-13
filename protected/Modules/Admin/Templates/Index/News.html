@@ -1,0 +1,48 @@
+{{ publishCss() }}
+{{ publishJs() }}
+<div class="container-fluid">
+    <section class="well">
+        <form class="smart-form" method="post" action="/admin/index/save">
+            {# {% if item.isNew %}#}
+            <header>Добавление статьи</header>
+            {# {% else %}#}
+
+            {# {% endif %}#}
+
+            <fieldset>
+                <section>
+                    <label class="label"><p class="text-info">Название статьи</p></label>
+                    <label class="input">
+                        <input type="text" name="title" value="{{item.title}}">
+                    </label>
+                </section>
+                <section>
+                    <label class="label"><p class="text-info">Автор статьи</p></label>
+                    <label class="input">
+                        <input type="text" name="author" value="{{item.author}}">
+                    </label>
+                </section>
+                <section>
+                    <label class="label">Родительский раздел</label>
+                    <label class="select">
+                        {# {% if item.isNew %}
+                        {{ selectTreeByModel("App\\Modules\\News\\Models\\Topic", 0, {"null":true}, {"name":"parent"}) }}
+                        {% else %}
+                        {{ selectTreeByModel("App\\Modules\\News\\Models\\Topic", item.parent.Pk, {"null":true, 'disabled':[item.Pk]}, {"name":"parent"}) }}
+                        {% endif %}#}
+                        <i></i>
+                    </label>
+                    <label class="label"><p class="text-info">Введите текст статьи</p></label>
+                    <label class="textarea">
+                        <textarea rows="3" name="article" value="{{item.article}}"></textarea>
+                    </label>
+
+                </section>
+            </fieldset>
+            <footer>
+                <button type="submit" class="btn btn-primary">Сохранить</button>
+                <button type="button" class="btn btn-default" onclick="window.history.back();">Отменить</button>
+            </footer>
+        </form>
+    </section>
+</div>
